@@ -1,0 +1,23 @@
+<nav>
+  <div class="btn-group" ngbDropdown>
+    <button class="btn btn-outline-primary">{{menu[0]}}</button>
+    <button class="btn btn-outline-primary">{{menu[1]}}</button>
+    <button class="btn btn-outline-primary" ngbDropdownToggle>
+      {{menu[2]}}
+    </button>
+    <div class="dropdown-menu" ngbDropdownMenu>
+      <h6 class="dropdown-header">{{user.name}}</h6>
+      <button class="dropdown-item">Mes taches</button>
+      <button class="dropdown-item">Mes idées</button>
+    </div>
+    <form class="form-inline">
+      <input [(ngModel)]="user.name" class="form-control" name="nomUtilisateur" value="John Doe">
+    </form> 
+   
+  </div>
+
+    <ngb-alert [dismissible]="false">
+      <strong>Warning !</strong> {{getUserName()}}
+    </ngb-alert>
+
+</nav>
