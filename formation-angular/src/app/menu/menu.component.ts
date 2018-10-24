@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
+import { CurrentUserService } from '../services/current-user.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,8 +11,8 @@ export class MenuComponent implements OnInit {
   menu: Array<any> = ['Taches','Idées','Mon compte'];
   user:User;
 
-  constructor() {
-    this.user = new User(1,'Nom par defaut','1@1.fr');
+  constructor(currentUser:CurrentUserService) {
+    this.user = currentUser.getCurrentUser();
   }
 
   ngOnInit() {

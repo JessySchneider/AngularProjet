@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnexionService } from '../services/connexion.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   titre: string = "Bonjour";
   isConnected: boolean = false;
 
-  constructor() { 
+  constructor(private connectionService:ConnexionService) { 
     
   }
 

@@ -1,0 +1,36 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th *ngFor="let entete of enteteTableau">
+        {{entete | uppercase}}
+      </th>
+      <th>{{nbTacheCompleted}} / {{listeTaches.length}}</th>
+    </tr>
+  <tr>
+    <th><input class="form-control" placeholder="Nouvelle tâche" [(ngModel)]="newTacheName" name="tachename"></th>
+    <th></th>
+    <th><button class="btn btn-outline-success" (click)='addTodos()'>Ajouter</button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tache of listeTaches" (click)='selectItem(tache.id)' [ngClass]="[tacheSelected.id === tache.id?'table-active':'']">
+    <td>
+      <span *ngIf="tacheSelected.id !== tache.id">{{tache.title}}</span>
+      <input [(ngModel)]='tache.name' class="form-control" *ngIf="tacheSelected.id === tache.id"  type="text" name="tacheName" id="">
+    </td>
+    <td> 
+      <div class="btn-group" ngbDropdown>
+        <button class="btn btn-outline-primary" ngbDropdownToggle>
+            Liste utilisateurs
+        </button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+          <button *ngFor="let user of listeUsers" class="dropdown-item">{{user.name}}</button>
+        </div>
+      </div>
+    </td>
+    <td>
+        <fa-icon icon="check-circle" [ngClass]="[tache.checked ? 'checked' : 'unchecked']" (click)="tache.checked=!tache.checked ; numberOfTacheCompleted()"></fa-icon>
+    </td>
+  </tr>
+  </tbody>
+</table>

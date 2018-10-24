@@ -12,6 +12,11 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { TodolistComponent } from './todolist/todolist.component';
+import { CurrentUserService } from './services/current-user.service';
+import { UsersService } from './services/users.service';
+import { TodosService } from './services/todos.service';
+
 
 library.add(fas, far);
 
@@ -20,6 +25,7 @@ library.add(fas, far);
     AppComponent,
     MenuComponent,
     HeaderComponent,
+    TodolistComponent,
    
   ],
   imports: [
@@ -28,7 +34,7 @@ library.add(fas, far);
     FontAwesomeModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CurrentUserService,UsersService,TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
