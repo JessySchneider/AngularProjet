@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user.model';
-import { CurrentUserService } from '../services/current-user.service';
+import {User} from '../models/user.model';
+import {CurrentUserService} from '../services/current-user.service';
+import {ConnectionService} from '../services/connection.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,20 +9,22 @@ import { CurrentUserService } from '../services/current-user.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  menu: Array<any> = ['Taches','Idées','Mon compte'];
-  user:User;
 
-  constructor(currentUser:CurrentUserService) {
-    this.user = currentUser.getCurrentUser();
-  }
+  menuItems:string[] = [
+    "Taches",
+    "Idées",
+    "Mon compte",
+    "Mes taches",
+    "Mes idées"
+  ]
+
+  currentUser: User;
+
+  constructor(private currentUserService:CurrentUserService,
+              public connection:ConnectionService) { }
 
   ngOnInit() {
+    this.currentUser = this.currentUserService.getCurrentUser();
   }
-
-  getUserName() {
-    return this.user.name;
-  }
-
-
 
 }

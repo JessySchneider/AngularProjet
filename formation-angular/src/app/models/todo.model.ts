@@ -1,16 +1,15 @@
-import { User } from "./user.model";
+import {User} from './user.model';
 
-export class Todo{
-    id: number;  
-    title: string;   
-    completed: boolean;
-    idUser?: User;
+export class Todo {
 
-    constructor(id: number, title: string, completed: boolean){
-        this.id = id;
-        this.title = title;
-        this.completed = completed;
-        // this.idUser = idUser;
-    }
+  id:number;
+  title:string;
+  completed:boolean;
+  user?:User;
 
+  constructor(id,title,completed){
+    this.id=id;
+    this.title=title;
+    this.completed=completed;
+  }
 }

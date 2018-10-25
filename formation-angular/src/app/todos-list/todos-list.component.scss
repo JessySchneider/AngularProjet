@@ -1,0 +1,7 @@
+.todoIcon {
+  color: lightgray;
+
+  &.todoCompleted {
+    color: green;
+  }
+}

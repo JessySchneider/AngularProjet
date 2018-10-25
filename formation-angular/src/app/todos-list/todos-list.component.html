@@ -1,0 +1,50 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>{{tableHeaders[0] | uppercase}}</th>
+    <th>{{tableHeaders[1] | uppercase}}</th>
+    <th>{{nbTodoLeft()}}/{{todoList.length}}</th>
+  </tr>
+  <tr>
+    <th><input
+      #newFormInput
+      [(ngModel)]="newTitle"
+      class="form-control" placeholder="Nouvelle tâche"></th>
+    <th></th>
+    <th><button
+      (click)="addNewTodo()"
+      class="btn btn-outline-success">Ajouter</button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let todo of todoList"
+      (click)="selectTodo(todo)"
+      [ngClass]="{'table-active':isSelectedTodo(todo)}"
+  >
+    <td>
+      <span *ngIf="!isSelectedTodo(todo)">{{todo.title}}</span>
+      <input
+        [disabled]="todo.completed"
+        (click)="inputClick($event)"
+        class="form-control" *ngIf="isSelectedTodo(todo)" [(ngModel)]="todo.title">
+    </td>
+    <td>
+      <!-- user list -->
+      <select class="form-control">
+        <option *ngFor="let user of userList"
+                [disabled]="user.id == currentUser.id">
+          {{user.name}}
+        </option>
+      </select>
+    </td>
+    <td class="todoIcon"
+        (click)="completeTodo(todo)"
+        [ngClass]="{'todoCompleted':todo.completed}">
+      <!--[ngStyle]="{'color':todo.completed?'green':'lightgray'}"-->
+      <!--[style.color]="todo.completed?'green':'gray'"-->
+      <!--[class.todoCompleted]="todo.completed"-->
+      <i class="far fa-check-circle"></i>
+    </td>
+  </tr>
+  </tbody>
+</table>

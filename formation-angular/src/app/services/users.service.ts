@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
+import {User} from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +8,15 @@ export class UsersService {
 
   private users:User[];
 
-  constructor() { 
-
+  constructor() {
     this.users = [
-        {id:0, name: "Patator",email: "patator@frit.fr"},
-        {id:1, name: "Jean",email: "jean@frit.fr"},
-        {id:2, name: "Paul",email: "paul@frit.fr"},
-        {id:3, name: "Emilie",email: "emilie@frit.fr"},
-        {id:4, name: "Caroline",email: "caroline@frit.fr"},
-      ];
+      {id:1, email:'aa@aa.com',name:'Roger'},
+      {id:2, email:'bb@aa.com',name:'Sophie'},
+      {id:3, email:'cc@aa.com',name:'Jacques'}
+    ]
   }
 
   getUsers(){
     return this.users;
   }
-
 }

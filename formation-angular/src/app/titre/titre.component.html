@@ -1,0 +1,14 @@
+<header>
+  <button [hidden]="isConnected()"
+          (click)="connect()"
+          class="float-right btn btn-outline-success">Login
+  </button>
+  <button [hidden]="!isConnected()"
+          (click)="disconnect()"
+          class="float-right btn btn-outline-warning">Logout
+  </button>
+  <h1>{{titre}}</h1>
+  <div class="alert alert-info">
+    Bienvenue sur notre application de tâches et d'idées
+  </div>
+</header>

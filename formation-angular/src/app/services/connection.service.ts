@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ConnexionService {
+export class ConnectionService {
+
   private connected:boolean;
 
-  isconnected(){
+  isConnected(){
     return this.connected;
   }
 
@@ -17,8 +18,6 @@ export class ConnexionService {
   disconnect(){
     this.connected = false;
   }
-  
+
   constructor() { }
-
-
 }
